@@ -1,10 +1,27 @@
 package com.codeclan.example.SuperheroSightings.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "sightings")
 public class Sighting {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name="time")
     private String time;
+
+    @Column(name="date")
     private String date;
+
+    @ManyToOne
+    @JoinColumn(name="location_id", nullable = false)
     private Location location;
+
+    @ManyToOne
+    @JoinColumn(name="superhero_id", nullable = false)
     private Superhero superhero;
 
     public Sighting(String time, String date, Location location, Superhero superhero) {
