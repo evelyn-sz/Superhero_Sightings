@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.annotation.Generated;
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "locations")
@@ -19,11 +20,11 @@ public class Location {
 
     @JsonIgnoreProperties("location")
     @OneToMany(mappedBy = "location", fetch = FetchType.LAZY)
-    private ArrayList<Superhero> superheroes;
+    private List<Sighting> sightings;
 
     public Location(String name) {
         this.name = name;
-        this.superheroes = new ArrayList<>();
+        this.sightings = new ArrayList<>();
     }
 
     public Location(){};
@@ -36,11 +37,11 @@ public class Location {
         this.name = name;
     }
 
-    public ArrayList<Superhero> getSuperheroes() {
-        return superheroes;
+    public List<Sighting> getSightings() {
+        return sightings;
     }
 
-    public void setSuperheroes(ArrayList<Superhero> superheroes) {
-        this.superheroes = superheroes;
+    public void getSightings(ArrayList<Sighting> sightings) {
+        this.sightings = sightings;
     }
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "superheroes")
@@ -16,9 +17,9 @@ public class Superhero {
     @Column(name="name")
     private String name;
 
-    @JsonIgnoreProperties(value="sighting")
-    @OneToMany(mappedBy = "sighting", fetch = FetchType.LAZY)
-    private ArrayList<Sighting> sightings;
+    @JsonIgnoreProperties(value="superhero")
+    @OneToMany(mappedBy = "superhero", fetch = FetchType.LAZY)
+    private List<Sighting> sightings;
 
     public Superhero(String name) {
         this.name = name;
@@ -33,7 +34,7 @@ public class Superhero {
         this.name = name;
     }
 
-    public ArrayList<Sighting> getSightings() {
+    public List<Sighting> getSightings() {
         return sightings;
     }
 
