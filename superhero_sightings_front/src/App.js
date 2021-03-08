@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
-import SightingsContainer from "./containers/SightingsContainer"
+import MainContainer from './containers/MainContainer';
+// import SightingsContainer from "./containers/SightingsContainer"
 
 
 function App() {
   return (
-    <SightingsContainer/>
+    <MainContainer/>
   );
 }
 
