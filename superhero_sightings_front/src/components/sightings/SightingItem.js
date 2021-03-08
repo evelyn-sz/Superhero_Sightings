@@ -10,3 +10,4 @@ function SightingItem(){
 
 
 export default SightingItem;
+

@@ -1,10 +1,14 @@
 import React from 'react';
+import SightingItem from "./SightingItem.js";
 
 
 function SightingList(){
 
     return (
-        <p>SightingList</p>
+        <>
+        <SightingItem />						
+        <SightingItem/>						
+      </>
     );
 }
 
