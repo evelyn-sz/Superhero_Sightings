@@ -1,4 +1,5 @@
 import React from 'react';
+import SightingForm from '../components/sightings/SightingForm';
 
 
 function SightingsContainer(){
@@ -6,6 +7,7 @@ function SightingsContainer(){
 
     return (
         <h1>Superhero Sightings</h1>
+        
     );
 }
 
