@@ -1,5 +1,7 @@
 import React from 'react';
 import {GoogleMap, useLoadScript } from '@react-google-maps/api';
+require('dotenv').config();
+
 
 const containerStyle = {
   width: '500px',
@@ -14,6 +16,7 @@ function MapContainer() {
     
     if (loadError) return "Error loading maps";
     if (!isLoaded) return "Loading maps";
+    console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY)
     
     return(
       <div className="mapContainer">
