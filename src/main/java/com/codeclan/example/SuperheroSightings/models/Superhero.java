@@ -25,6 +25,7 @@ public class Superhero {
         this.name = name;
         this.sightings = new ArrayList<>();
     }
+    public Superhero(){}
 
     public String getName() {
         return name;

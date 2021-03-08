@@ -1,5 +1,7 @@
 package com.codeclan.example.SuperheroSightings.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,10 +18,12 @@ public class Sighting {
     @Column(name="date")
     private String date;
 
+    @JsonIgnoreProperties("sightings")
     @ManyToOne
     @JoinColumn(name="location_id", nullable = false)
     private Location location;
 
+    @JsonIgnoreProperties("sightings")
     @ManyToOne
     @JoinColumn(name="superhero_id", nullable = false)
     private Superhero superhero;
