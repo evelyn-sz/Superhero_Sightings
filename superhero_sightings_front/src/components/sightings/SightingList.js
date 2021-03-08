@@ -1,10 +1,20 @@
 import React from 'react';
+import SightingItem from "./SightingItem.js";
 
 
-function SightingList(){
+const SightingList = ({sightings}) => {
+
+    const sightingNodes = sightings.map(sighting => {
+        return (
+            <SightingItem superhero={sighting.superhero} city={sighting.city} date={sighting.date} key={sighting.id}></SightingItem>
+
+        );
+    })
 
     return (
-        <p>SightingList</p>
+        <>
+      		{sightingNodes}		
+      </>
     );
 }
 

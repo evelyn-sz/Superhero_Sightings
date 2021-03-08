@@ -1,12 +1,20 @@
 import React from 'react';
 
 
-function SightingItem(){
+const SightingItem = ({superhero, city, date}) => {
 
     return (
-        <p>SightingItem</p>
+        <>
+        <h4>{superhero}</h4>
+        <p>{city}</p>
+        <p>{date}</p>
+
+        </>
+
+        
     );
 }
 
 
 export default SightingItem;
+
