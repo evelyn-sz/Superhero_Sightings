@@ -11,13 +11,13 @@ const SightingsContainer = () => {
                 id: 1,
                 superhero: "Batman", 
                 city: "Rome", 
-                date: "27/02/2020"
+                date: "27-02-2020"
             },
             {
                 id: 2, 
                 superhero: "Superman",
                 city: "Melbourne",
-                date: "22/04/2021"
+                date: "22-04-2021"
             }
         ]
     )
