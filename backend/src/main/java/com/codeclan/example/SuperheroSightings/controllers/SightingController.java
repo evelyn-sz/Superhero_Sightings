@@ -32,6 +32,20 @@ public class SightingController {
         return new ResponseEntity<>(sighting, HttpStatus.CREATED);
     }
     // Edit: PATCH '/sightings/{id}'
+    @PatchMapping(value ="/sightings/{id}")
+    public ResponseEntity<Sighting> updateSighting(@RequestBody Sighting sighting){
+        sightingRepository.save(sighting);
+        return new ResponseEntity<>(sighting, HttpStatus.OK);
+    }
+
+    @DeleteMapping(value="/sightings/{id}")
+    public ResponseEntity<Sighting> deleteSighting(@PathVariable Long id){
+        Sighting found = sightingRepository.getOne(id);
+        sightingRepository.delete(found);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
+
     // Delete: DELETE '/sightings/{id}'
 
 }

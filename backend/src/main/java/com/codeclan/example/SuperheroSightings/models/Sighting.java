@@ -37,6 +37,7 @@ public class Sighting {
 
     public Sighting(){};
 
+
     public String getTime() {
         return time;
     }
@@ -67,5 +68,13 @@ public class Sighting {
 
     public void setSuperhero(Superhero superhero) {
         this.superhero = superhero;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

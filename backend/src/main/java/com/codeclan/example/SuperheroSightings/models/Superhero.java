@@ -42,4 +42,12 @@ public class Superhero {
     public void setSightings(ArrayList<Sighting> sightings) {
         this.sightings = sightings;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
