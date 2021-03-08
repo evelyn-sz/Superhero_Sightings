@@ -3,10 +3,15 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from '../NavBar';
 import SightingsContainer from './SightingsContainer';
 
+import './MainContainer.css';
+
+import MapView from '../components/maps/MapView';
+
 
 
 const MainContainer = () =>{
     return(
+      <>
         <Router>
         <Fragment>
             <NavBar/>
@@ -15,6 +20,8 @@ const MainContainer = () =>{
             </Switch>
         </Fragment>
         </Router>
+        <MapView/>
+        </>
 
     )
 }
