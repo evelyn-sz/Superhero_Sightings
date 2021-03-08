@@ -38,6 +38,13 @@ public class SightingController {
         return new ResponseEntity<>(sighting, HttpStatus.OK);
     }
 
+    @DeleteMapping(value="/sightings/{id}")
+    public ResponseEntity<Sighting> deleteSighting(@PathVariable Long id){
+        Sighting found = sightingRepository.getOne(id);
+        sightingRepository.delete(found);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
 
     // Delete: DELETE '/sightings/{id}'
 
