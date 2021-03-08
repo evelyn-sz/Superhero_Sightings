@@ -1,10 +1,27 @@
 import React from 'react';
 
 
-function SightingForm(){
+const SightingForm = () => {
 
     return (
-        <p>SightingForm</p>
+        <form>
+      <input 
+        type="text"
+        placeholder="Superhero name..."
+      />
+      <input 
+        type="text"
+        placeholder="City..."
+      />
+        <input 
+        type="text"
+        placeholder="Date and time..."
+      />
+      <input 
+        type="submit"
+        value="Post"
+      />
+    </form>
     );
 }
 
