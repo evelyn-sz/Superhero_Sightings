@@ -1,5 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import SightingForm from '../components/sightings/SightingForm';
+import SightingList from '../components/sightings/SightingList';
+
 
 
 const SightingsContainer = () => {
@@ -30,11 +33,18 @@ const SightingsContainer = () => {
 
     return (
         <>
+
+        <Switch>
+            <Route exact path = '/sightings/new' render={
+                () => {return <SightingForm onSightingSubmit={(sighting) => addSighting(sighting)}/> }
+            }/>
+        </Switch>
+
         <h1>Superhero Sightings</h1>
         <h2>Recent Sightings</h2>
         <SightingList sightings ={sightings} />	
         <h2>Report a Sighting</h2>
-        <SightingForm onSightingSubmit={(sighting) => addSighting(sighting)}/>	
+        	
         </>
 
     );
