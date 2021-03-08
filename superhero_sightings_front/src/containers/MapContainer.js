@@ -1,5 +1,6 @@
 import React from 'react';
 import {GoogleMap, useLoadScript } from '@react-google-maps/api';
+import Map from '../components/maps/Map';
 require('dotenv').config();
 
 
@@ -29,7 +30,8 @@ function MapContainer() {
             }
             }
           zoom={10}
-        />
+          >
+            </GoogleMap>
   
       </div>
     )
