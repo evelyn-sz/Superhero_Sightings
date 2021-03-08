@@ -22,13 +22,20 @@ const SightingsContainer = () => {
         ]
     )
 
+    const addSighting = (submittedSighting) => {
+        submittedSighting.id = Date.now();
+        const updatedSightings = [...sightings, submittedSighting];
+        setSightings(updatedSightings);
+      }
+    
+
     return (
         <>
         <h1>Superhero Sightings</h1>
         <h2>Recent Sightings</h2>
         <SightingList sightings ={sightings} />	
         <h2>Report a Sighting</h2>
-        <SightingForm />
+        <SightingForm onSightingSubmit={(sighting) => addSighting(sighting)}/>	
         </>
 
     );
