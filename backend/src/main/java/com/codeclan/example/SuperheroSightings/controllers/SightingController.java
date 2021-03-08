@@ -32,6 +32,13 @@ public class SightingController {
         return new ResponseEntity<>(sighting, HttpStatus.CREATED);
     }
     // Edit: PATCH '/sightings/{id}'
+    @PatchMapping(value ="/sightings/{id}")
+    public ResponseEntity<Sighting> updateSighting(@RequestBody Sighting sighting){
+        sightingRepository.save(sighting);
+        return new ResponseEntity<>(sighting, HttpStatus.OK);
+    }
+
+
     // Delete: DELETE '/sightings/{id}'
 
 }
