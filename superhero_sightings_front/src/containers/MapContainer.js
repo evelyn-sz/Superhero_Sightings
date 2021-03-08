@@ -6,10 +6,6 @@ const containerStyle = {
   height: '600px'
 };
 
-const center = {
-  lat: 55.947052415693385, 
-  lng: -3.2019743932536713
-};
 function MapContainer() {
   
       const { isLoaded, loadError } = useLoadScript({
@@ -20,10 +16,15 @@ function MapContainer() {
     if (!isLoaded) return "Loading maps";
     
     return(
-      <div className="App">
+      <div className="mapContainer">
         <GoogleMap
           mapContainerStyle={containerStyle}
-          center={center}
+          center={
+            {
+              lat: 55.947052415693385, 
+              lng: -3.2019743932536713
+            }
+            }
           zoom={10}
         />
   
@@ -33,3 +34,5 @@ function MapContainer() {
 }
 
 export default MapContainer;
+
+// https://www.digitalocean.com/community/tutorials/how-to-integrate-the-google-maps-api-into-react-applications
