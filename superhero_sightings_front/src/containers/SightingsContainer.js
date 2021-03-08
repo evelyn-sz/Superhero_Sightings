@@ -10,23 +10,25 @@ const SightingsContainer = () => {
 
     const[sightings, setSightings] = useState (
         [
-            {
-                id: 1,
-                superhero: "Batman", 
-                city: "Rome", 
-                date: "27-02-2020"
-            },
-            {
-                id: 2, 
-                superhero: "Superman",
-                city: "Melbourne",
-                date: "22-04-2021"
-            }
+        //     {
+        //         id: 1,
+        //         superhero: "Batman", 
+        //         location: "Rome", 
+        //         date: "27-02-2020"
+        //     },
+        //     {
+        //         id: 2, 
+        //         superhero: "Superman",
+        //         location: "Melbourne",
+        //         date: "22-04-2021"
+        //     }
         ]
     )
 
     const [superheroes, setSuperheroes] = useState([])
     const [locations, setLocations] = useState([])
+
+    useEffect(() => {getAllData()}, [sightings])
 
     const addSighting = (submittedSighting) => {
         submittedSighting.id = Date.now();
@@ -34,7 +36,7 @@ const SightingsContainer = () => {
         setSightings(updatedSightings);
       }
 
-    useEffect(() => {getAllData()}, [sightings])
+    
 
     const getAllData = () =>{
         console.log("getting data...");
@@ -72,7 +74,7 @@ const SightingsContainer = () => {
                 (props) => {return <SightingForm 
                     superheroes={superheroes}
                     locations={locations}
-                    onSightingSubmit={(sighting) => addSighting(sighting)} 
+                    // onSightingSubmit={(sighting) => addSighting(sighting)} 
                     onCreate={handlePost}/> }
             }/>
         </Switch>

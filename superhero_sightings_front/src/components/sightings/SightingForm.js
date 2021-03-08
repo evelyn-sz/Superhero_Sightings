@@ -1,9 +1,9 @@
 import React, {Fragment, useState}  from 'react';
 
 
-const SightingForm = ({props}) => {
+const SightingForm = ({props, setSighting}) => {
 
-  const [stateSighting, setStateSighting] = useState();
+  const [sighting, setSighting] = useState([]);
 
     // const [superhero, setSuperhero] = useState("");			
     // const [location, setLocation] = useState(""); 
@@ -21,11 +21,11 @@ const SightingForm = ({props}) => {
 //   const handleDateChange = (evt) => {			
 //     setDate(evt.target.value);
 //   }
-  const [sighting, setSighting] = useState(0);
+
 
   const findLocationIndex =() =>{
-    if (props.sighting) {
-      return props.locations.findIndex(location => {props.sighting.location.id === location.id})
+    if (sighting) {
+      return locations.findIndex(location => {sighting.location.id === location.id})
     } else {
       return null;
     }
@@ -33,7 +33,7 @@ const SightingForm = ({props}) => {
 
   const handleChange = (event) => {
     let propertyName = event.target.name;
-    let sighting = props.sighting
+    let sighting = sighting
     sighting[propertyName] = event.target.value;
     setSighting({sighting:sighting})
 
@@ -49,9 +49,9 @@ const SightingForm = ({props}) => {
 
   const handleFormSubmit = (evt) => {
     evt.preventDefault();
-    const superheroToSubmit = superhero.trim();
-    const locationToSubmit = location.trim();
-    const dateToSubmit = date.trim();
+    const superheroToSubmit = superhero;
+    const locationToSubmit = location;
+    const dateToSubmit = date;
     if (!superheroToSubmit || !locationToSubmit){
       return
     }
@@ -71,8 +71,8 @@ const SightingForm = ({props}) => {
       <Fragment>
         <h3>Create sighting</h3>
         <form onSubmit={handleFormSubmit}>
-          <input type="text" placeholder="time" name="time" onChange={handleChange} value={props.sighting.time}/>
-          <input type="text" placeholder="date" name="date" onChange={handleChange} value={props.sighting.date}/>
+          <input type="text" placeholder="time" name="time" onChange={handleChange} value={sighting.time}/>
+          <input type="text" placeholder="date" name="date" onChange={handleChange} value={sighting.date}/>
           <select name="location" onChange={handleLocation} defaultValue={findLocationIndex()|| "select-location"}>
           <option disabled value="select-location" > select a location</option>
           {locationOptions}
