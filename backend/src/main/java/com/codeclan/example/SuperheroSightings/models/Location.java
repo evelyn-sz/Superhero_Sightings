@@ -44,4 +44,12 @@ public class Location {
     public void getSightings(ArrayList<Sighting> sightings) {
         this.sightings = sightings;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
