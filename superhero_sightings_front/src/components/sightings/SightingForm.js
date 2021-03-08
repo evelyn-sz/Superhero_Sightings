@@ -19,7 +19,7 @@ const SightingForm = () => {
       />
       <input 
         type="submit"
-        value="Post"
+        value="Save"
       />
     </form>
     );
