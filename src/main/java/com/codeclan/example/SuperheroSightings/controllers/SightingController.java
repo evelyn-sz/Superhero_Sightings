@@ -6,9 +6,7 @@ import com.codeclan.example.SuperheroSightings.repositories.SuperheroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +26,11 @@ public class SightingController {
         return new ResponseEntity<>(sightingRepository.findById(id), HttpStatus.OK);
     }
     // Create : POST '/sightings'
+    @PostMapping(value = "/sightings")
+    public ResponseEntity<Sighting> createSighting(@RequestBody Sighting sighting){
+        sightingRepository.save(sighting);
+        return new ResponseEntity<>(sighting, HttpStatus.CREATED);
+    }
     // Edit: PATCH '/sightings/{id}'
     // Delete: DELETE '/sightings/{id}'
 
