@@ -1,7 +1,7 @@
 import React, {useState}  from 'react';
 
 
-const SightingForm = ({onSightingSubmit}) => {
+const SightingForm = ({onSightingSubmit, onCreate}) => {
 
     const [superhero, setSuperhero] = useState("");			
     const [city, setCity] = useState(""); 

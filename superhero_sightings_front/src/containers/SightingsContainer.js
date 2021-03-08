@@ -29,6 +29,29 @@ const SightingsContainer = () => {
         const updatedSightings = [...sightings, submittedSighting];
         setSightings(updatedSightings);
       }
+
+    const getAllData = () =>{
+        console.log("getting data...");
+        const request = new Request();
+        const sightingPromise = request.get('/api/sightings')
+
+        Promise.all([sightingPromise])
+        .then((data => {
+            setSightings();
+        }))
+
+
+        const handlePost = (sighting) => {
+            const request = new Request();
+            request.post("/api/sightings", sighting)
+            .then(() => window.location = '/sightings')
+        }
+
+        if (!{sightings}) {
+            return null
+        }
+
+    }
     
 
     return (
@@ -36,7 +59,7 @@ const SightingsContainer = () => {
 
         <Switch>
             <Route exact path = '/sightings/new' render={
-                () => {return <SightingForm onSightingSubmit={(sighting) => addSighting(sighting)}/> }
+                () => {return <SightingForm onSightingSubmit={(sighting) => addSighting(sighting)} onCreate={handlePost}/> }
             }/>
         </Switch>
 
