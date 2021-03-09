@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,12 +19,17 @@ public class SuperheroController {
     SuperheroRepository superheroRepository;
 
 //    Show all superheroes: GET ‘/superheroes’
-    @GetMapping(value='/superheroes')
+    @GetMapping(value="/superheroes")
     public ResponseEntity<List<Superhero>> getAllSuperheroes(){
         return new ResponseEntity<>(superheroRepository.findAll(), HttpStatus.OK);
     }
 
 //    Show superhero by ID: GET ‘/superheroes/{id}
+    @GetMapping(value="/superheroes/{id}")
+    public ResponseEntity getSuperhero(@PathVariable Long id){
+        return new ResponseEntity<>(superheroRepository.findById(id), HttpStatus.OK);
+
+    }
 //    Create: POST ‘/superheroes’
 //    Edit: PUT ‘/superheroes/{id}
 //    Delete: DELETE ‘/superheroes/{id}
