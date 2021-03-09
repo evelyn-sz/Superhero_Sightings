@@ -35,7 +35,14 @@ public class SuperheroController {
         return new ResponseEntity<>(superhero, HttpStatus.CREATED);
     }
 //    Edit: PUT ‘/superheroes/{id}
+
+    @PutMapping(value="/superheroes/{id}")
+    public ResponseEntity<Superhero> updateSuperhero(@RequestBody Superhero superhero){
+        superheroRepository.save(superhero);
+        return new ResponseEntity<>(superhero, HttpStatus.OK);
+    }
 //    Delete: DELETE ‘/superheroes/{id}
+    @DeleteMapping(value)
 
 
 }
