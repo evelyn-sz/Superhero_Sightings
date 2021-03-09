@@ -1,5 +1,5 @@
 import React, {Fragment, useEffect, useState}  from 'react';
-
+// Sighting form connected to back end
 
 const SightingForm = ({sighting, locations, superheroes, onCreate, onUpdate}) => {
 
