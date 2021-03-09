@@ -7,17 +7,17 @@ import Request from '../helpers/request';
 
 const SightingsContainer = () => {
 
-    const [sightings, setSightings] = useState ([])
+    const [sightings, setSightings] = useState([])
     const [superheroes, setSuperheroes] = useState([])
     const [locations, setLocations] = useState([])
-    
+
     const getAllData = function(){
       console.log("getting data...");
       const request = new Request();
       const sightingPromise = request.get('/api/sightings')
       const superheroPromise = request.get('/api/superheroes')
       const locationPromise = request.get('/api/locations')
-      
+
       Promise.all([sightingPromise, superheroPromise, locationPromise])
       .then((data) => {
         console.log(data);
@@ -29,12 +29,12 @@ const SightingsContainer = () => {
     useEffect(() => {
       getAllData()
     }, [])
-    
+
     const findSightingById = function(id){
       return sightings.find((sighting) => {
         return sighting.id === parseInt(id);
       })
-    }  
+    }
 
     const handleDelete = function(id){
       const request = new Request();
@@ -42,7 +42,7 @@ const SightingsContainer = () => {
       request.delete(url)
       .then(() => window.location = "/sightings")
     }
-    
+
     const handlePost = function(sighting){
         const request = new Request();
         request.post("/api/sightings", sighting)
@@ -61,7 +61,7 @@ const SightingsContainer = () => {
     if (!{sightings}) {
         return null
     }
-    
+
 
     return (
         <Router>
@@ -69,11 +69,11 @@ const SightingsContainer = () => {
 
         <Switch>
             <Route exact path = '/sightings/new' render={() => {
-              return <SightingForm 
+              return <SightingForm
                     superheroes={superheroes}
                     locations={locations}
-                    // onSightingSubmit={(sighting) => addSighting(sighting)} 
-                    onCreate={handlePost}/> 
+                    // onSightingSubmit={(sighting) => addSighting(sighting)}
+                    onCreate={handlePost}/>
                   }}/>
 
             <Route exact path="/sightings/:id/edit" render={(props) => {
@@ -97,13 +97,13 @@ const SightingsContainer = () => {
               return <SightingList sightings={sightings}/>
             }}/>
         </Switch>
-        
+
 
         <h1>Superhero Sightings</h1>
         <h2>Recent Sightings</h2>
-        <SightingList sightings ={sightings} /> 
+        <SightingList sightings ={sightings} />
         <h2>Report a Sighting</h2>
-          
+
         </>
         </Router>
 
