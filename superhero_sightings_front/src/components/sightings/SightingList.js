@@ -6,7 +6,7 @@ const SightingList = ({sightings}) => {
 
     const sightingNodes = sightings.map(sighting => {
         return (
-            <SightingItem superhero={sighting.superhero} city={sighting.city} date={sighting.date} key={sighting.id}></SightingItem>
+            <SightingItem superhero={sighting.superhero} location={sighting.location} date={sighting.date} key={sighting.id}></SightingItem>
 
         );
     })
