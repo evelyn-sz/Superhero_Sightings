@@ -42,7 +42,12 @@ public class SuperheroController {
         return new ResponseEntity<>(superhero, HttpStatus.OK);
     }
 //    Delete: DELETE ‘/superheroes/{id}
-    @DeleteMapping(value)
+    @DeleteMapping(value="/superheroes/{id}")
+    public ResponseEntity<Superhero> deleteSuperhero(@PathVariable Long id){
+        Superhero found = superheroRepository.getOne(id);
+        superheroRepository.delete(found);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
 
 
 }
