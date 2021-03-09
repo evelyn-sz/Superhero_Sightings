@@ -1,67 +1,117 @@
-import React, {useState}  from 'react';
+import React, {Fragment, useEffect, useState}  from 'react';
+import SightingsContainer from '../../containers/SightingsContainer';
 
 
-const SightingForm = ({onSightingSubmit}) => {
+const SightingForm = ({sighting, locations, superheroes, onCreate, onUpdate}) => {
 
-    const [superhero, setSuperhero] = useState("");			
-    const [city, setCity] = useState(""); 
-    const [date, setDate] = useState(""); 
-
-
-const handleSuperheroChange = (evt) => {			
-    setSuperhero(evt.target.value);
-  }
-
-  const handleCityChange = (evt) => {			
-    setCity(evt.target.value);
-  }
-
-  const handleDateChange = (evt) => {			
-    setDate(evt.target.value);
-  }
-
-  const handleFormSubmit = (evt) => {
-    evt.preventDefault();
-    const superheroToSubmit = superhero.trim();
-    const cityToSubmit = city.trim();
-    const dateToSubmit = date.trim();
-    if (!superheroToSubmit || !cityToSubmit){
-      return
+  const [stateSighting, setStateSighting] = useState(
+    {
+      time: "",
+      date: "",
+      location: null,
+      superhero: null
     }
-    onSightingSubmit({						
-        superhero: superheroToSubmit,				
-        city: cityToSubmit, 
-        date: dateToSubmit		
-      });
+  );
 
-    setSuperhero("");  
-    setCity("");    
-    setDate("");    
 
+  const findLocationIndex =() =>{
+    if (sighting) {
+      return locations.findIndex(location => sighting.location.id === location.id)
+    } else {
+      return null;
+    }
+  }
+  const findSuperheroIndex =() =>{
+    if (sighting) {
+      return superheroes.findIndex(superhero => sighting.superhero.id === superhero.id)
+    } else {
+      return null;
+    }
+  }
+
+  const handleChange = function(event){
+    let propertyName = event.target.name;
+    let copiedSighting = {...stateSighting}
+    copiedSighting[propertyName] = event.target.value;
+    setStateSighting(copiedSighting)
+
+  }
+
+  const handleLocation = function(event){
+    const index = parseInt(event.target.value)
+    const selectedLocation = locations[index]
+    let copiedSighting = {...stateSighting };
+    copiedSighting["location"] = selectedLocation
+    setStateSighting(copiedSighting)
+  }
+  const handleSuperhero = function(event){
+    const index = parseInt(event.target.value)
+    const selectedSuperhero = superheroes[index]
+    let copiedSighting = {...stateSighting };
+    copiedSighting["superhero"] = selectedSuperhero
+    setStateSighting(copiedSighting)
+  }
+
+  const handleFormSubmit = function (event) {
+    event.preventDefault();
+    if(stateSighting.id){
+      onUpdate(stateSighting)
+    } else {
+      onCreate(stateSighting);
+    }
+  }
+
+  useEffect(()=>{
+    if(sighting){
+      let copiedSighting = {...sighting}
+      setStateSighting(copiedSighting)
+    }
+  }, [sighting])
+
+  const locationOptions = locations.map((location, index) => {
+    return <option key={index} value={index}>{location.name}</option>
+  })
+  const superheroOptions = superheroes.map((superhero, index) => {
+    return <option key={index} value={index}>{superhero.name}</option>
+  })
+
+  let heading = "";
+
+  if (!sighting){
+    heading = "Create Sighting"
+  } else {
+    heading = "Edit Sighting";
+  }
+
+  if (!locations.length === 0){
+    return <p>Loading...</p>
+  }
+
+  if (!superheroes.length === 0){
+    return <p>Loading...</p>
   }
 
     return (
-        <form className="sighting-form" onSubmit={handleFormSubmit}>
-        <input
-          type="text"
-          placeholder="Superhero name"
-          value={superhero} 
-          onChange={handleSuperheroChange}									
-        />
-        <input
-          type="text"
-          placeholder="City"
-          value={city} 		
-          onChange={handleCityChange}							
-        />
-         <input
-          type="date"
-          placeholder="Date"
-          value={date} 		
-          onChange={handleDateChange}							
-        />
-        <input type="submit" value="Submit" />
-      </form>
+      <Fragment>
+        <h3>{heading}</h3>
+        <form onSubmit={handleFormSubmit}>
+          <input type="text" placeholder="time" name="time" onChange={handleChange} value={stateSighting.time}/>
+          <input type="text" placeholder="date" name="date" onChange={handleChange} value={stateSighting.date}/>
+
+          <select name="location" onChange={handleLocation} defaultValue={findLocationIndex()|| "select-location"}>
+          <option disabled value="select-location" > Select a Location</option>
+          {locationOptions}
+          </select>
+
+          <select name="superhero" onChange={handleSuperhero} defaultValue={findSuperheroIndex()|| "select-superhero"}>
+          <option disabled value="select-superhero" > Select a Superhero</option>
+          {superheroOptions}
+          </select>
+
+          <button type="submit">Save</button>
+        </form>
+      </Fragment>
+      
     );
 }
 
