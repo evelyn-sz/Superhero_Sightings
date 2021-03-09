@@ -1,5 +1,4 @@
 import React, {Fragment, useEffect, useState}  from 'react';
-import SightingsContainer from '../../containers/SightingsContainer';
 
 
 const SightingForm = ({sighting, locations, superheroes, onCreate, onUpdate}) => {
