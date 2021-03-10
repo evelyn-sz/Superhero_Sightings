@@ -94,7 +94,9 @@ const SightingForm = ({sighting, locations, superheroes, onCreate, onUpdate}) =>
       <Fragment>
         <h3>{heading}</h3>
         <form onSubmit={handleFormSubmit}>
-          <input type="text" placeholder="time" name="time" onChange={handleChange} value={stateSighting.time}/>
+          
+          <input type="text" id="time" placeholder="time" name="time" onChange={handleChange} value={stateSighting.time}/>
+          
           <input type="text" placeholder="date" name="date" onChange={handleChange} value={stateSighting.date}/>
 
           <select name="location" onChange={handleLocation} defaultValue={findLocationIndex()|| "select-location"}>

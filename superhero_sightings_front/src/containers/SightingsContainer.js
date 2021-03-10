@@ -22,8 +22,8 @@ const SightingsContainer = () => {
       .then((data) => {
         console.log(data);
         setSightings(data[0]);
-        setLocations(data[1]);
-        setSuperheroes(data[2])
+        setSuperheroes(data[1]);
+        setLocations(data[2])
       })
     }
     useEffect(() => {

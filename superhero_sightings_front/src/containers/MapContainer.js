@@ -1,8 +1,8 @@
-import Map from "../components/Map";
+import Map from "../components/maps/Map";
 import "../App.css";
 import { useState, useEffect } from "react";
-import Header from '../components/Header';
-import Loader from '../components/Loader';
+import Header from '../components/maps/Header';
+import Loader from '../components/maps/Loader';
 
 function MapContainer() {
   const [sightings, setSightingData] = useState([])
