@@ -1,12 +1,15 @@
 import React from "react";
+import ReactDOM from 'react-dom'
 import { MapContainer, TileLayer } from "react-leaflet";
 import LocationMarker from "./LocationMarker";
 import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 
 
 
-const Map = ({ center, zoom, sightings }) => {
+const Map = ({ center, zoom, sightings, maxBounds, noWrap}) => {
+  
 
   
  const DefaultIcon = L.icon({
@@ -18,6 +21,8 @@ const Map = ({ center, zoom, sightings }) => {
   shadowAnchor: null,
   iconSize: [35, 35],
   className: 'defaulticon'
+
+
 });
 
   const markers = sightings.map((sighting, key) => {
@@ -33,20 +38,34 @@ const Map = ({ center, zoom, sightings }) => {
     });
 
   return (
-    <MapContainer style={{ height: "100vh" }} center={center} zoom={zoom}>
+    <MapContainer style={{ height: "500px", width: "700px" }} center={center} zoom={zoom}   maxBounds={maxBounds} noWrap={noWrap}>
       <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url='https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png'
+        
+        
+        
       />
       {markers}
     </MapContainer>
+
+
+
+    
   );
 };
 
+
+
 Map.defaultProps = {
-  center: [42.3265, -122.8756],
-  zoom: 0,
+  center: [44.37656992, -361.41500473],
+  zoom: 1.5,
+  maxBounds: [[-90, -180],[90, 180]],
+  noWrap: true
+  
 };
+
+
 
 export default Map;
 
@@ -77,3 +96,8 @@ export default Map;
 //           }
 //       ]
 //   )}
+
+// mapbox://styles/rbodsworth/ckm3j9ybyc74i17p6ag2g0e05
+// pk.eyJ1IjoicmJvZHN3b3J0aCIsImEiOiJja20zamkwcGg0Z3U3MnZud3ZtcDFhdnd6In0.0sfFOS9bXhh9vEhFlKpx2Q
+
+// https://api.mapbox.com/styles/v1/rbodsworth/ckm3j9ybyc74i17p6ag2g0e05/tiles/256{z}/{x}/{y}@2xaccess_token=pk.eyJ1IjoicmJvZHN3b3J0aCIsImEiOiJja20zamkwcGg0Z3U3MnZud3ZtcDFhdnd6In0.0sfFOS9bXhh9vEhFlKpx2Q

@@ -3,6 +3,7 @@ import "../App.css";
 import { useState, useEffect } from "react";
 import Header from '../components/maps/Header';
 import Loader from '../components/maps/Loader';
+import 'leaflet/dist/leaflet.css';
 
 function MapContainer() {
   const [sightings, setSightingData] = useState([])
@@ -47,13 +48,3 @@ export default MapContainer;
 
 
 
-
-
-
-
-// /   const {events} = await (await fetch('http://localhost:8000/sightings')).json()
-    //   setEventData(events)
-    //   setLoading(false)
-    // }
-    // fetchEvents()
-  // }, [])
