@@ -18,12 +18,20 @@ public class Location {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "lat")
+    private double lat;
+
+    @Column(name= "lng")
+    private double lng;
+
     @JsonIgnoreProperties("location")
     @OneToMany(mappedBy = "location", fetch = FetchType.LAZY)
     private List<Sighting> sightings;
 
-    public Location(String name) {
+    public Location(String name, double lat, double lng) {
         this.name = name;
+        this.lat = lat;
+        this.lng = lng;
         this.sightings = new ArrayList<>();
     }
 
@@ -35,6 +43,22 @@ public class Location {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public double getLng() {
+        return lng;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
     }
 
     public List<Sighting> getSightings() {

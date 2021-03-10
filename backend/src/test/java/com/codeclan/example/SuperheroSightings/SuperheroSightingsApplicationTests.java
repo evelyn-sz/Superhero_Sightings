@@ -18,7 +18,7 @@ class SuperheroSightingsApplicationTests {
 	@Test
 	public void superheroAndLocationHaveNames(){
 		Superhero superman = new Superhero("Superman");
-		Location location = new Location("Edinburgh");
+		Location location = new Location("Edinburgh",  55.95534, -3.18854);
 
 		assertEquals("Superman", superman.getName());
 		assertEquals("Edinburgh", location.getName());

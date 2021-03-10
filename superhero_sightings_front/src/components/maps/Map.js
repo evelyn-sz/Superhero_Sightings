@@ -2,13 +2,10 @@ import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import LocationMarker from "./LocationMarker";
 import L from 'leaflet';
-
-
-
+import 'leaflet/dist/leaflet.css';
 
 const Map = ({ center, zoom, sightings }) => {
 
-  
  const DefaultIcon = L.icon({
   iconUrl: require('./icon.png'),
   iconRetinaUrl: require('./icon.png'),
@@ -17,23 +14,29 @@ const Map = ({ center, zoom, sightings }) => {
   shadowSize: null,
   shadowAnchor: null,
   iconSize: [35, 35],
-  className: 'defaulticon'
+  className: 'defaultIcon'
 });
 
+  console.log("Inside map", sightings)
+
   const markers = sightings.map((sighting, key) => {
-    //  if (sightings[0].id === sighting.id) {
-       const lat = sighting.coordinates[0];
-       const lng = sighting.coordinates[1];
+       const lat = sighting.location.lat;
+       const lng = sighting.location.lng;
        return (
-      <LocationMarker key={key} lat={lat} lng={lng}  info= 
-       {sighting.name} icon={DefaultIcon}/>
-      );
-    //  }
+         <LocationMarker key={key} lat={lat} lng={lng}  info= 
+         {sighting.location.name} icon={DefaultIcon}/>
+         );
+         //  }
+         console.log("Inside markers in Map", markers)
     // return null 
     });
+    Map.defaultProps = {
+      center: [42.3265, -122.8756],
+      zoom: 5
+    };
 
   return (
-    <MapContainer style={{ height: "100vh" }} center={center} zoom={zoom}>
+    <MapContainer style={{ height: "500px", width: "500px" }} center={center} zoom={zoom}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -43,10 +46,6 @@ const Map = ({ center, zoom, sightings }) => {
   );
 };
 
-Map.defaultProps = {
-  center: [42.3265, -122.8756],
-  zoom: 0,
-};
 
 export default Map;
 

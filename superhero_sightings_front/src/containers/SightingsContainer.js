@@ -4,6 +4,7 @@ import SightingForm from '../components/sightings/SightingForm';
 import SightingList from '../components/sightings/SightingList';
 import SightingDetail from '../components/sightings/SightingDetail';
 import Request from '../helpers/request';
+import Map from '../components/maps/Map';
 
 const SightingsContainer = () => {
 
@@ -20,7 +21,7 @@ const SightingsContainer = () => {
 
       Promise.all([sightingPromise, superheroPromise, locationPromise])
       .then((data) => {
-        console.log(data);
+        console.log("inside the Promise", data);
         setSightings(data[0]);
         setSuperheroes(data[1])
         setLocations(data[2]);
@@ -97,7 +98,7 @@ const SightingsContainer = () => {
               return <SightingList sightings={sightings}/>
             }}/>
         </Switch>
-
+            <Map sightings={sightings}/>
 
         <h1>Superhero Sightings</h1>
         <h2>Recent Sightings</h2>

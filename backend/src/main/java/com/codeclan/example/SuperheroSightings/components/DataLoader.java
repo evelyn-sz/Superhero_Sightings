@@ -44,22 +44,22 @@ public class DataLoader implements ApplicationRunner {
         Superhero captainmarvel = new Superhero("Captain Marvel");
         superheroRepository.save(captainmarvel);
 
-        Location edinburgh = new Location("Edinburgh");
+        Location edinburgh = new Location("Edinburgh", 55.95534, -3.18854);
         locationRepository.save(edinburgh);
 
-        Location shanghai = new Location("Shanghai");
+        Location shanghai = new Location("Shanghai", 31.132440, 121.474868);
         locationRepository.save(shanghai);
 
-        Location newYork = new Location("New York");
+        Location newYork = new Location("New York", 40.708601454472515, -74.0401389261897);
         locationRepository.save(newYork);
 
-        Location bangkok = new Location("Bangkok");
+        Location bangkok = new Location("Bangkok", 13.768565849229088, 100.51730600746257);
         locationRepository.save(bangkok);
 
-        Location rome = new Location("Rome");
+        Location rome = new Location("Rome", 41.90382021297346, 12.496024163209828);
         locationRepository.save(rome);
 
-        Location melbourne = new Location("Melbourne");
+        Location melbourne = new Location("Melbourne", -37.8231861443854, 144.96962767810015);
         locationRepository.save(melbourne);
 
         Sighting sighting1 = new Sighting("12:00", "01/03/2021", edinburgh, superman);
