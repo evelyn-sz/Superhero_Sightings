@@ -1,5 +1,6 @@
 import React, {Fragment, useEffect, useState}  from 'react';
 // Sighting form connected to back end
+import './SightingList.css'
 
 const SightingForm = ({sighting, locations, superheroes, onCreate, onUpdate}) => {
 
@@ -91,9 +92,9 @@ const SightingForm = ({sighting, locations, superheroes, onCreate, onUpdate}) =>
   }
 
     return (
-      <Fragment>
-        <h3>{heading}</h3>
-        <form onSubmit={handleFormSubmit}>
+      <div className="sightingFormWrapper">
+        <h3 className="createSighting">{heading}</h3>
+        <form className="sightingForm" onSubmit={handleFormSubmit}>
           
           <input type="text" id="time" placeholder="time" name="time" onChange={handleChange} value={stateSighting.time}/>
           
@@ -111,7 +112,7 @@ const SightingForm = ({sighting, locations, superheroes, onCreate, onUpdate}) =>
 
           <button type="submit">Save</button>
         </form>
-      </Fragment>
+      </div>
       
     );
 }

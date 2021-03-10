@@ -1,5 +1,6 @@
 import React from 'react';
 import SightingItem from "./SightingItem.js";
+import './SightingList';
 
 
 const SightingList = ({sightings}) => {
@@ -12,9 +13,12 @@ const SightingList = ({sightings}) => {
     })
 
     return (
-        <>
+      <div className="sightingListWrapper">
+          <h1 className="reportedSightings">Reported Sightings</h1>
+        <div className="sightingList">
       		{sightingNodes}		
-      </>
+      </div>
+      </div>
     );
 }
 

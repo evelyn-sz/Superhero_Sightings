@@ -5,6 +5,7 @@ import SightingList from '../components/sightings/SightingList';
 import SightingDetail from '../components/sightings/SightingDetail';
 import Request from '../helpers/request';
 import Map from '../components/maps/Map';
+import './MainContainer.css';
 
 const SightingsContainer = () => {
 
@@ -66,7 +67,7 @@ const SightingsContainer = () => {
 
     return (
         <Router>
-        <>
+        <div className="sightingContainer">
 
         <Switch>
             <Route exact path = '/sightings/new' render={() => {
@@ -95,7 +96,7 @@ const SightingsContainer = () => {
             }}/>
 
             <Route exact path="/sightings" render={() => {
-              return <SightingList sightings={sightings}/>
+              return <SightingList className="sightingList" sightings={sightings}/>
             }}/>
         </Switch>
             <Map sightings={sightings}/>
@@ -105,7 +106,7 @@ const SightingsContainer = () => {
         <SightingList sightings ={sightings} />
         <h2>Report a Sighting</h2> */}
 
-        </>
+        </div>
         </Router>
 
     );
