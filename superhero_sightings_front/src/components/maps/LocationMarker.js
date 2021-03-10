@@ -14,10 +14,10 @@ let DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
-const LocationMarker = ({ lat, lng, info }) => {
+const LocationMarker = ({ lat, lng, sighting }) => {
   return (
-    <Marker lat={lat} lng={lng} icon={DefaultIcon}>
-      <MarkerPopup info={info} />
+    <Marker position={[lat, lng]} icon={DefaultIcon}>
+      <MarkerPopup sighting={sighting} />
     </Marker>
   );
 };

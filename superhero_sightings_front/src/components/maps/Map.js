@@ -23,8 +23,7 @@ const Map = ({ sightings }) => {
        const lat = sighting.location.lat;
        const lng = sighting.location.lng;
        return (
-         <LocationMarker key={key} lat={lat} lng={lng}  info= 
-         {sighting.location.name} icon={DefaultIcon}/>
+         <LocationMarker key={key} lat={lat} lng={lng} sighting={sighting} icon={DefaultIcon}/>
          );
          //  }
          console.log("Inside markers in Map", markers)
@@ -41,9 +40,7 @@ const Map = ({ sightings }) => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
       />
-      {/* <LocationMarker >
       {markers}
-      </LocationMarker> */}
     </MapContainer>
   );
 };
