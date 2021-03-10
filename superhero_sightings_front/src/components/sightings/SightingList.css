@@ -2,8 +2,9 @@
   /* background-color: orange; */
   display: flex;
   flex-wrap: wrap;
-  width: 600px;
-  background: rgba(100, 100, 100, 0.5);
+  width: auto;
+  max-width: 600px;
+  background: rgba(255, 248, 234, 0.4);
 
 }
 
@@ -15,7 +16,7 @@
   height: 70px;
   display: flex;
   flex-flow: column;
-  background: rgba(133, 107, 79, 0.5);
+  background: rgba(255, 248, 234, 0.4);
   box-shadow: 2px;
 }
 
@@ -25,14 +26,22 @@
 }
 
 .sightingListWrapper {
-  background: rgba(100, 100, 100, 0.5);
+  background: rgba(255, 248, 234, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
 }
 
 
 .reportedSightings{
   color:aliceblue;
-  text-shadow: 1.5px 1.5px rgba(10, 15, 29, 0.8)
+  text-shadow: 1.5px 1.5px rgba(10, 15, 29, 0.8);
+  background: rgba(255, 248, 234, 0.4);
+  display: flex;
+  justify-content: center;
+  width: 350px;
+
 }
 
 .sightingFormWrapper{
