@@ -4,7 +4,7 @@ import LocationMarker from "./LocationMarker";
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const Map = ({ center, zoom, sightings }) => {
+const Map = ({ sightings }) => {
 
  const DefaultIcon = L.icon({
   iconUrl: require('./icon.png'),
@@ -30,18 +30,20 @@ const Map = ({ center, zoom, sightings }) => {
          console.log("Inside markers in Map", markers)
     // return null 
     });
-    Map.defaultProps = {
-      center: [42.3265, -122.8756],
-      zoom: 5
-    };
+
+
+    const center = [42.3265, -122.8756];
+    const zoom = 5;
 
   return (
     <MapContainer style={{ height: "500px", width: "500px" }} center={center} zoom={zoom}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
       />
+      {/* <LocationMarker >
       {markers}
+      </LocationMarker> */}
     </MapContainer>
   );
 };
