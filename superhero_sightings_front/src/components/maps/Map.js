@@ -1,20 +1,35 @@
 import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import LocationMarker from "./LocationMarker";
+import L from 'leaflet';
 
 
-const Map = ({ center, zoom, sighting }) => {
 
-  const markers = sighting.map((sightings, key) => {
-     if (sighting[0].id === sightings) {
-       const [lng] = sightings.coordinates[0];
-       const [lat] = sightings.coordinates[1];
 
-    return (
-      <LocationMarker key={key} lng={lng} lat={lat} info= 
-       {sightings.name} />
+const Map = ({ center, zoom, sightings }) => {
+
+  
+ const DefaultIcon = L.icon({
+  iconUrl: require('./icon.png'),
+  iconRetinaUrl: require('./icon.png'),
+  iconAnchor: null,
+  shadowUrl: null,
+  shadowSize: null,
+  shadowAnchor: null,
+  iconSize: [35, 35],
+  className: 'defaulticon'
+});
+
+  const markers = sightings.map((sighting, key) => {
+    //  if (sightings[0].id === sighting.id) {
+       const lat = sighting.coordinates[0];
+       const lng = sighting.coordinates[1];
+       return (
+      <LocationMarker key={key} position={lat, lng}  info= 
+       {sighting.name} icon={DefaultIcon}/>
       );
-     }
+    //  }
+    // return null 
     });
 
   return (

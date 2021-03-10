@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import Loader from '../components/Loader';
 
 function MapContainer() {
-  const [sighting, setSightingData] = useState([])
+  const [sightings, setSightingData] = useState([])
   const [loading, setLoading] = useState(false)
 
   useEffect(()=>{
@@ -25,7 +25,7 @@ function MapContainer() {
   return (
     <div>
       <Header />
-      { !loading ? <Loader/> : <Map sighting={sighting} /> }
+      { !loading ? <Loader/> : <Map sightings={sightings} /> }
     </div>
   );
 }

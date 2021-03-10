@@ -16,7 +16,7 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 const LocationMarker = ({ lat, lng, info }) => {
   return (
-    <Marker position={[lat, lng]}>
+    <Marker position={[lat, lng]} icon={DefaultIcon}>
       <MarkerPopup info={info} />
     </Marker>
   );
