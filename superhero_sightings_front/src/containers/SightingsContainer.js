@@ -8,22 +8,22 @@ import Request from '../helpers/request';
 const SightingsContainer = () => {
 
     const [sightings, setSightings] = useState([])
-    const [superheroes, setSuperheroes] = useState([])
     const [locations, setLocations] = useState([])
+    const [superheroes, setSuperheroes] = useState([])
 
     const getAllData = function(){
       console.log("getting data...");
       const request = new Request();
       const sightingPromise = request.get('/api/sightings')
-      const superheroPromise = request.get('/api/superheroes')
       const locationPromise = request.get('/api/locations')
+      const superheroPromise = request.get('/api/superheroes')
 
       Promise.all([sightingPromise, superheroPromise, locationPromise])
       .then((data) => {
         console.log(data);
         setSightings(data[0]);
-        setSuperheroes(data[1]);
-        setLocations(data[2])
+        setSuperheroes(data[1])
+        setLocations(data[2]);
       })
     }
     useEffect(() => {
@@ -70,8 +70,8 @@ const SightingsContainer = () => {
         <Switch>
             <Route exact path = '/sightings/new' render={() => {
               return <SightingForm
-                    superheroes={superheroes}
-                    locations={locations}
+              locations={locations}
+              superheroes={superheroes}
                     // onSightingSubmit={(sighting) => addSighting(sighting)}
                     onCreate={handlePost}/>
                   }}/>
