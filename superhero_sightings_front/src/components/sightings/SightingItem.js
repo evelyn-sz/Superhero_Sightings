@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-const SightingItem = ({superhero, city, date}) => {
+const SightingItem = ({superhero, location, date}) => {
 
     return (
         <>
         <h4>{superhero.name}</h4>
-        <p>{city}</p>
+        <p>{location.name}</p>
         <p>{date}</p>
 
         </>
