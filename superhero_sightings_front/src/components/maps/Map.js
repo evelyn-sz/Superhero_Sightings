@@ -25,8 +25,8 @@ const Map = ({ center, zoom, sightings }) => {
        const lat = sighting.coordinates[0];
        const lng = sighting.coordinates[1];
        return (
-      <LocationMarker key={key} lat={lat} lng={lng}  info= 
-       {sighting.name} icon={DefaultIcon}/>
+      <LocationMarker key={key} lat={lat} lng={lng}  sighting= 
+       {sighting} icon={DefaultIcon}/>
       );
     //  }
     // return null 

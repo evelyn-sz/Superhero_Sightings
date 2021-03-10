@@ -1,13 +1,14 @@
 import React from 'react';
 
 
-const SightingItem = ({superhero, location, date}) => {
+const SightingItem = ({superhero, location, date, time}) => {
 
     return (
         <>
         <h4>{superhero.name}</h4>
         <p>{location}</p>
-        <p>{date}</p>
+        <p>{date} and {time}</p>
+
 
         </>
 

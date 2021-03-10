@@ -2,11 +2,15 @@ import React from "react";
 import { Popup } from "react-leaflet";
 // import './MarkerPopup.css'
 
-const MarkerPopup = ({ info }) => {
+const MarkerPopup = ({ sighting }) => {
   return (
     <Popup>
-      <div className="popup-text">{info}</div>
+      <h2>who: {sighting.name}</h2>
+      <p>in: {sighting.location}</p>
+      <p>on: {sighting.date}</p>
     </Popup>
   );
 };
 export default MarkerPopup;
+
+// className="popup-text"
