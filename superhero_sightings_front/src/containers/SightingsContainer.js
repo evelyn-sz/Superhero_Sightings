@@ -94,16 +94,16 @@ const SightingsContainer = () => {
               />
             }}/>
 
-            <Route render={() => {
+            <Route exact path="/sightings" render={() => {
               return <SightingList sightings={sightings}/>
             }}/>
         </Switch>
             <Map sightings={sightings}/>
 
-        <h1>Superhero Sightings</h1>
+        {/* <h1>Superhero Sightings</h1>
         <h2>Recent Sightings</h2>
         <SightingList sightings ={sightings} />
-        <h2>Report a Sighting</h2>
+        <h2>Report a Sighting</h2> */}
 
         </>
         </Router>
