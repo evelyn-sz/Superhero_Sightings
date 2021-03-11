@@ -1,0 +1,9 @@
+
+.mainContainer{
+  /* background-color: yellow; */
+}
+
+.sightingContainer{
+  display: flex;
+  margin: 15px;
+}

@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+  margin: 15px;
+  padding: 15px;
+  border: solid 2px rgb(10, 15, 29);
+  background: './styles/Superheroes.png'; 
+  background: url('https://www.mensjournal.com/wp-content/uploads/mf/justice-league-batman-superman-aquaman-trailer-1280.jpg?w=900&h=506&crop=1&quality=86&strip=all');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.header {
+  background-color: rgba(100, 100, 100, 0.8);
+  border: solid 2px rgb(10, 15, 29);
+  display: flex;
+  margin: 15px;
+}
+
+.header.header {
+  display: flex;
+  flex-wrap: row;
+  justify-content: space-between;
+}
+
+ul {
+  display: flex;
+  /* justify-content: space-between; */
+}
+li {
+  list-style: none;
+
+}
+
+a {
+  padding: 3px;
+  margin: 3px;
+}
+
+a:link, a:visited, a:hover, a:focus, a:active{
+  color:rgb(32, 31, 26);
+  text-decoration: none;
+  font-weight: bolder;
+}

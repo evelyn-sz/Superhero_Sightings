@@ -1,0 +1,32 @@
+{
+    "sightings": [
+      {
+        "id": 1,
+        "name": "Batman",
+        "location": "Rome",
+        "date": "27-02-2020", 
+        "coordinates":[41.9028, 2.4964]
+      },
+      {
+        "id": 2,
+        "name": "Superman",
+        "location": "Melbourne",
+        "date": "25-01-2020", 
+        "coordinates":[37.8136, 144.9631]
+      },
+      {
+        "id": 3,
+        "name": "Spider-Man",
+        "location": "New York",
+        "date": "02-02-2021", 
+        "coordinates":[40.7128, 74.0060]
+      },
+      {
+        "id": 4,
+        "name": "Captain Marvel",
+        "location": "Edinburgh",
+        "date": "01-12-2020", 
+        "coordinates":[55.9533, 3.1883]
+      }
+    ]
+  }

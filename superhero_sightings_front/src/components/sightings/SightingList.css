@@ -1,0 +1,78 @@
+.sightingList{
+  /* background-color: orange; */
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+  max-width: 600px;
+  background: rgba(255, 248, 234, 0.4);
+
+}
+
+.sightingItem{
+  padding: 3px;
+  margin: 3px;
+  border: solid 2px rgb(10, 15, 29);
+  width: 130px;
+  height: 70px;
+  display: flex;
+  flex-flow: column;
+  background: rgba(255, 248, 234, 0.4);
+  box-shadow: 2px;
+}
+
+.sightingItem h4{
+  padding: 1px;
+  margin: 1px;
+}
+
+.sightingListWrapper {
+  background: rgba(255, 248, 234, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+.reportedSightings{
+  color:aliceblue;
+  text-shadow: 1.5px 1.5px rgba(10, 15, 29, 0.8);
+  background: rgba(255, 248, 234, 0.4);
+  display: flex;
+  justify-content: center;
+  width: 350px;
+}
+
+.sightingFormWrapper{
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  align-items: center;
+}
+
+.sightingForm{
+  display: flex;
+  flex-direction: column;
+}
+
+.createSighting{
+  color:aliceblue;
+  text-shadow: 1.5px 1.5px rgba(10, 15, 29, 0.8)
+}
+
+input {
+  margin: 2px;
+}
+
+select {
+  margin: 2px;
+}
+
+button {
+  margin: 2px;
+}
+
+p {
+  margin: 1px;
+  padding: 1px;
+}
