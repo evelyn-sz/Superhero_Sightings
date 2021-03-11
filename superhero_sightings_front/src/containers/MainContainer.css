@@ -7,3 +7,10 @@
   display: flex;
   margin: 15px;
 }
+
+.navBar {
+  background-color: rgba(197, 196, 196, 0.8);
+  border: solid 2px rgb(10, 15, 29);
+  display: flex;
+  margin: 15px;
+}

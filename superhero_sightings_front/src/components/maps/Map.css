@@ -1,0 +1,13 @@
+.mapWrapper{
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+
+}
+
+.mapHeader{
+  margin: 10px 0px 10px 0px;
+  display: flex;
+  justify-content: center;
+
+}
