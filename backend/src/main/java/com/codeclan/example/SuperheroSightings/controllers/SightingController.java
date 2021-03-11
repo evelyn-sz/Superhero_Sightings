@@ -17,9 +17,14 @@ public class SightingController {
 
     // Show all sightings: GET '/sightings'
     @GetMapping(value = "/sightings")
-    public ResponseEntity<List<Sighting>> getAllSightings(){
+    public ResponseEntity<List<Sighting>> getAllSightingsAndFilters(
+            @RequestParam(name="superhero", required = false) Long superheroId) {
+        if (superheroId != null) {
+            return new ResponseEntity<>(sightingRepository.findAllBySuperheroId(superheroId), HttpStatus.OK);
+        }
         return new ResponseEntity<>(sightingRepository.findAll(), HttpStatus.OK);
     }
+
     // Show sighting by id: GET '/sightings/{id}'
     @GetMapping(value = "/sightings/{id}")
     public ResponseEntity getSighting(@PathVariable Long id){
