@@ -6,6 +6,7 @@ class Request {
     }
 
     delete(url) {
+      console.log("inside request.js: Delete", url)
       return fetch(url, {
         method: "DELETE",
         headers: {'Content-Type': 'application/json'}

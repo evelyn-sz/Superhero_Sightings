@@ -3,11 +3,11 @@ import SightingItem from "./SightingItem.js";
 import './SightingList';
 
 
-const SightingList = ({sightings}) => {
+const SightingList = ({sightings, onDelete}) => {
 
     const sightingNodes = sightings.map(sighting => {
         return (
-            <SightingItem superhero={sighting.superhero} location={sighting.location} date={sighting.date} key={sighting.id}></SightingItem>
+            <SightingItem sighting={sighting} onDelete={onDelete}  key={sighting.id}></SightingItem>
 
         );
     })

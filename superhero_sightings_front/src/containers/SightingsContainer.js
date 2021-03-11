@@ -39,6 +39,7 @@ const SightingsContainer = () => {
     }
 
     const handleDelete = function(id){
+      console.log("inside sightingsContainer: handleDelete", id);
       const request = new Request();
       const url = "/api/sightings/" + id
       request.delete(url)
@@ -94,9 +95,10 @@ const SightingsContainer = () => {
               superheroes={superheroes}
               />
             }}/>
+            
 
             <Route exact path="/sightings" render={() => {
-              return <SightingList className="sightingList" sightings={sightings}/>
+              return <SightingList onDelete={handleDelete} className="sightingList" sightings={sightings}/>
             }}/>
         </Switch>
             <Map sightings={sightings}/>
