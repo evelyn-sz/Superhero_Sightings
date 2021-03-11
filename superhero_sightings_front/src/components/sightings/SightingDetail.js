@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 
-function SightingDetail(){
+function SightingDetail({onDelete, sighting}){
+
+    const handleDelete = () =>{
+        onDelete(sighting.id)
+    }
 
     return (
-        <p>SightingDetail</p>
+        <>
+        <p>List of sightings banana</p>
+        <button onClick={handleDelete}>Delete sighting</button>
+        </>
+        
     );
 }
 
