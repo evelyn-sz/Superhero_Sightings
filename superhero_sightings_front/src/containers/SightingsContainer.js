@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, useLocation} from 'react-router-dom';
 import SightingForm from '../components/sightings/SightingForm';
 import SightingList from '../components/sightings/SightingList';
 import SightingDetail from '../components/sightings/SightingDetail';
@@ -8,6 +8,10 @@ import Map from '../components/maps/Map';
 import './MainContainer.css';
 
 const SightingsContainer = () => {
+
+  const search = useLocation().search;
+  const locationFilter = new URLSearchParams(search).get('location');
+  const superheroFilter = new URLSearchParams(search).get('superhero');
 
     const [sightings, setSightings] = useState([])
     const [locations, setLocations] = useState([])
@@ -68,7 +72,8 @@ const SightingsContainer = () => {
     return (
         <Router>
         <div className="sightingContainer">
-
+          <h1>{superheroFilter}</h1>
+          <h1>{locationFilter}</h1>
         <Switch>
             <Route exact path = '/sightings/new' render={() => {
               return <SightingForm
@@ -98,6 +103,7 @@ const SightingsContainer = () => {
             <Route exact path="/sightings" render={() => {
               return <SightingList className="sightingList" sightings={sightings}/>
             }}/>
+            <Route path="/sightings"/>
         </Switch>
             <Map sightings={sightings}/>
 
