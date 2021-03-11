@@ -35,7 +35,7 @@ const Map = ({ sightings }) => {
     const zoom = 2;
 
   return (
-    <MapContainer style={{ height: "500px", width: "600px", margin: "10px", padding: "10px", border: "solid 5px black" }} center={center} zoom={zoom}>
+    <MapContainer style={{ height: "500px", width: "600px", margin: "10px", padding: "10px", border: "solid 5px black"}} center={center} zoom={zoom}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
