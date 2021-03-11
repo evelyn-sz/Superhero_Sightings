@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import SightingForm from '../components/sightings/SightingForm';
 import SightingList from '../components/sightings/SightingList';
-import SightingDetail from '../components/sightings/SightingDetail';
+import SightingItem from '../components/sightings/SightingItem';
 import Request from '../helpers/request';
 import Map from '../components/maps/Map';
 import './MainContainer.css';
@@ -39,7 +39,7 @@ const SightingsContainer = () => {
     }
 
     const handleDelete = function(id){
-      console.log("inside sightingsContainer: handleDelete", id);
+      console.log("inside sightingsContainer: handleDelete");
       const request = new Request();
       const url = "/api/sightings/" + id
       request.delete(url)
@@ -88,7 +88,7 @@ const SightingsContainer = () => {
             <Route exact path="/sightings/:id" render={(props) =>{
               const id = props.match.params.id;
               const sighting = findSightingById(id);
-              return <SightingDetail sighting={sighting}
+              return <SightingItem sighting={sighting}
               onDelete={handleDelete}
               onUpdate={handleUpdate}
               locations={locations}

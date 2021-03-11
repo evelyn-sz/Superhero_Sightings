@@ -1,5 +1,4 @@
 import React from 'react';
-import SightingDetail from './SightingDetail';
 import './SightingList.css';
 
 
